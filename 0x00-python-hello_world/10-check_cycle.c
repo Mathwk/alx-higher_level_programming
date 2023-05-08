@@ -9,14 +9,14 @@
 int check_cycle(listint_t *list)
 {
 	listint_t *a = list;
-	listint_t *b = a->next;
+	listint_t *b = list;
 
 	if (!list)
 		return (0);
 	while (a && b && b->next)
 	{
 		a = a->next;
-		b = b->next;
+		b = b->next->next;
 		if (a == b)
 			return (1);
 	}
