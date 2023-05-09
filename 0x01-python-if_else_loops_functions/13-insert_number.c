@@ -1,4 +1,4 @@
-#include "lists"
+#include "lists.h"
 /**
  * insert_node - inserts number at a node in assending order
  * @head: list to be altered
