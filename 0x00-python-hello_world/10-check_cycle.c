@@ -1,15 +1,12 @@
 #include "lists.h"
-
 /**
  * check_cycle - checks if there is a cycle in list
  * @list: sigly linked list
- *
  * Return: 1 if there is a cycle, else 0
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *a = list;
-	listint_t *b = list;
+	listint_t *a = list, *b = list;
 
 	if (!list)
 		return (0);
