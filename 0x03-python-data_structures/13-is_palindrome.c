@@ -30,38 +30,41 @@ listint_t *rev_linked(listint_t **head)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *tmp;
-	listint_t *rev;
-	listint_t *mid;
-	size_t n, i;
+	listint_t *slow = *head, *fast = *head, *temp = *head, *dup = NULL;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
 
-	tmp = *head;
-	for (n = 0; tmp; n++)
-		tmp = tmp->next;
-
-	tmp = *head;
-	for (i = 0; i < (n / 2) - 1; i++)
-		tmp = tmp->next;
-
-	if ((n % 2) == 0 && tmp->n != tmp->next->n)
-		return (0);
-
-	tmp = tmp->next->next;
-	rev = rev_linked(&tmp);
-	mid = rev;
-
-	tmp = *head;
-	while (rev)
+	while (1)
 	{
-		if (tmp->n != rev->n)
-			return (0);
-		tmp = tmp->next;
-		rev = rev->next;
+		fast = fast->next->next;
+		if (!fast)
+		{
+			dup = slow->next;
+			break;
+		}
+		if (!fast->next)
+		{
+			dup = slow->next->next;
+			break;
+		}
+		slow = slow->next;
 	}
-	rev_linked(&mid);
 
-	return (1);
+	rev_linked(&dup);
+
+	while (dup && temp)
+	{
+		if (temp->n == dup->n)
+		{
+			dup = dup->next;
+			temp = temp->next;
+		}
+		else
+			return (0);
+	}
+
+	if (!dup)
+		return (1);
+	return (0);
 }
