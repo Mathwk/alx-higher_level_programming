@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Square class create """
 
+
 class Square:
     """ defines square """
     def __init__(self, size=0, position=(0, 0)):
@@ -14,7 +15,10 @@ class Square:
 
     @size.setter
     def size(self, value):
-        """ sets value for size """
+        """ sets value for size
+        arg:
+            size(int): attribute to square
+        """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         elif value < 0:
@@ -27,8 +31,11 @@ class Square:
         return (self.__position)
 
     @position.setter
-    """ sets value for position """
     def position(self, value):
+        """ sets value for position
+        arg:
+            position(int, int): attribute to square
+        """
         if (not isinstance(value, tuple) or
                 len(value) != 2 or
                 not all(isinstance(num, int) for num in value) or
