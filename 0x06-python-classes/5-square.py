@@ -3,8 +3,8 @@
 
 
 class Square:
+    """ define square """
     def __init__(self, size=0):
-        """ define square """
         self.size = size
 
     @property
