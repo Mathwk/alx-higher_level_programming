@@ -1,8 +1,11 @@
 #!/usr/bin/python3
-from json import dumps
+"""
+7-save_to_json_file.py
+"""
+import json
 
 
 def save_to_json_file(my_obj, filename):
+    """ Saves a json in a file"""
     with open(filename, 'w') as f:
-        a = dumps(my_obj)
-        f.write(a)
+        f.write(json.dumps(my_obj))

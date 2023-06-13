@@ -1,6 +1,11 @@
 #!/usr/bin/python3
+"""
+0-read_file.py
+"""
+
+
 def read_file(filename=""):
-    with open(filename, 'r') as f:
-        for li in f:
-            print(li, end="")
-    f.closed
+    """ Prints a file """
+    with open(filename, encoding='utf8') as f:
+        for ln in f:
+            print(ln, end='')
