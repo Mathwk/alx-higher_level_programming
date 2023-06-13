@@ -1,7 +1,6 @@
-
 #!/usr/bin/python3
 """
-2-write_file.py
+1-write_file.py
 """
 
 
