@@ -10,9 +10,10 @@ load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 filename = "add_item.json"
 
-arg_list = []
-if path.isfile(filename):
+try:
     arg_list = load_from_json_file(filename)
+except FileNotFoundError:
+    arg_list = []
 
 for a in argv[1:]:
     arg_list.append(a)
